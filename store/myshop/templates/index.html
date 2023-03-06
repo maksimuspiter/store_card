@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+    {% for product in products%}
+    <li>
+        <h3>{{product.name}}</h3>
+        <p>price: {{product.price}}</p>
+        <p>description: {{product.description}}</p>
+        <a href="{% url 'card:add-in-basket' id_product=product.id%}">in card</a>
+    </li>
+{% endfor %}
+
+</ul>
+
+</body>
+</html>
