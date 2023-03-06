@@ -4,7 +4,10 @@ from myshop.models import Product
 
 
 def add_in_basket(request, id_product: int):
-    basket, created = Basket.objects.get_or_create(user=request.user, product=Product.objects.get(pk=id_product))
+    basket, created = Basket.objects.get_or_create(user=request.user,
+                                                   # product=Product.objects.get(pk=id_product)
+                                                   product_id=id_product
+                                                   )
 
     print(basket, created)
 
