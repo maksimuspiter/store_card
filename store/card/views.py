@@ -4,12 +4,16 @@ from myshop.models import Product
 
 
 def add_in_basket(request, id_product: int):
+    basket, created = Basket.objects.get_or_create(user=request.user, product=Product.objects.get(pk=id_product))
 
-    Basket.objects.create(user=request.user,
-                          product=Product.objects.get(pk=id_product),
-                          quantity=1)
-    # products = Basket.objects.filter(user=request.user)
+    print(basket, created)
+
+    if not created:
+        basket.quantity += 1
+        basket.save()
+
     return redirect('myshop:all-products')
+
 
 def user_card(request):
     products = Basket.objects.filter(user=request.user)
