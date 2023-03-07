@@ -20,4 +20,5 @@ def add_in_basket(request, id_product: int):
 
 def user_card(request):
     products = Basket.objects.filter(user=request.user)
-    return render(request, 'card/card.html', {'products': products})
+    return render(request, 'card.html', {'products': products})
+
