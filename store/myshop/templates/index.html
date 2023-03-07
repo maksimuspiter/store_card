@@ -44,7 +44,8 @@
                     <a href="{% url 'card:user-card' %}">
                         <button class="btn btn-outline-dark" >
                             <i class="bi-cart-fill me-1"></i>
-                            Cart
+                            <span class="badge bg-success text-white ms-1 rounded-pill">{{total_cost}} $</span>
+
                             <span class="badge bg-dark text-white ms-1 rounded-pill">{{total_cont}}</span>
                         </button>
                     </a>
